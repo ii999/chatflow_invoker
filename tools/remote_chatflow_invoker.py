@@ -36,11 +36,11 @@ class RemoteChatflowInvokerTool(Tool):
         keep_conversation = tool_parameters.get("keep_conversation", False)
 
         sub_conversation_id=''
-
+        
         if keep_conversation:
             current_conversation_id=self.session.conversation_id
-            app_id=tool_parameters.get("app_id")
-            save_key=f"{current_conversation_id}:{app_id}"
+            api_key=tool_parameters.get("api_key")
+            save_key=f"{current_conversation_id}:{api_key}"
             logger.info(f"save_key: {save_key}")
             
             if self.session.storage.exist(save_key):
